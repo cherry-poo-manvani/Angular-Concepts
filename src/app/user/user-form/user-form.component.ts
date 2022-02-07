@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../Model/user.model';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -9,39 +10,70 @@ import { UserServiceService } from '../user-service.service';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-  userForm={} as FormGroup;
+  userForm = {} as FormGroup;
   submitted: boolean = false;
-  userData:any
-  constructor(private formBuilder: FormBuilder,
-     private userServiceService:UserServiceService,
-     private router: Router) { }
+  userData: User[] = []
 
-  ngOnInit(): void {
-      this.userForm = this.formBuilder.group({ 
-        "firstname": new FormControl(""),
-        "lastname": new FormControl(""),
-        "email": new FormControl("", ),
-        "mobile": new FormControl(""),
-        "gender": new FormControl(""),
-        "date": new FormControl(""),
-        "department": new FormControl(""),
-      });
+  id: number;
+  isEdit: boolean = false;
+
+  constructor(private formBuilder: FormBuilder,
+    private userServiceService: UserServiceService,
+    private router: Router, private route: ActivatedRoute) {
+    this.id = this.route.snapshot.params['id'];
   }
 
-   // convenience getter for easy access to form fields
-   get f() { return this.userForm.controls; }
+  ngOnInit(): void {
+    this.userForm = this.formBuilder.group({
+      "firstname": new FormControl("", Validators.required),
+      "lastname": new FormControl("", Validators.required),
+      "email": new FormControl("", Validators.email),
+      "mobile": new FormControl("", Validators.required),
+      "gender": new FormControl("", Validators.required),
+      "date": new FormControl("", Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)),
+      "department": new FormControl("", Validators.required),
+    });
+
+
+    if (this.id) {
+      this.isEdit = true;
+    }
+    if (this.isEdit) {
+      this.userServiceService.getByID(this.id).subscribe(data => {
+        this.userForm.patchValue(data)
+      })
+    }
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.userForm.controls; }
+
 
   onSubmit() {
-    debugger
+    if (this.isEdit){
+      this.Updatedata()
+    }
+    else {
+      this.Savedata()
+    }
+  }
+
+
+  Updatedata() {
+    this.userServiceService.updateUser(this.id,this.userForm.value).subscribe(()=>{
+      alert("updated");
+      this.router.navigateByUrl("/list");
+    })
+  }
+
+  Savedata() {
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.userForm.invalid) {
-        return;
+      return;
     }
-    this.userServiceService.addUser(this.userForm.value).subscribe((res)=>{
-      this.userData = res
-      debugger
+    this.userServiceService.addUser(this.userForm.value).subscribe(() => {
       this.router.navigateByUrl("/list");
     })
   }

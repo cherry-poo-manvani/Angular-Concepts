@@ -1,66 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstName": "jay",
-      "lastName": "bhanushali",
-      "email": "ag@dm.com",
-      "phoneNo": "9987654321",
-      "dateOfEmpmt": "5-5-2005",
-      "gender": "Male",
-      "department": "Angular"
-    },
-    {
-      "firstName": "om",
-      "lastName": "om",
-      "email": "om",
-      "phoneNo": "(963) (85274)1",
-      "dateOfEmpmt": "2022-03-03",
-      "gender": "male",
-      "department": "ML",
-      "id": 2
-    },
-    {
-      "firstName": "asd",
-      "lastName": "a",
-      "email": "",
-      "phoneNo": "(123) (1231233)3",
-      "dateOfEmpmt": "",
-      "gender": "",
-      "department": "",
-      "id": 3
-    },
-    {
-      "firstName": "k",
-      "lastName": "lasj",
-      "email": "LKASN@JSBF.COMAS",
-      "phoneNo": "(564) (5464644))",
-      "dateOfEmpmt": "2022-02-27",
-      "gender": "male",
-      "department": "Datascience",
-      "id": 4
-    },
-    {
-      "firstName": "AS",
-      "lastName": "FD",
-      "email": "",
-      "phoneNo": "",
-      "dateOfEmpmt": "",
-      "gender": "",
-      "department": "",
-      "id": 5
-    },
-    {
-      "firstname": "fdfd",
-      "lastname": "fdfd",
-      "email": "fdfdf",
-      "mobile": 767676,
-      "gender": "",
-      "date": "2022-02-05",
-      "department": "1",
-      "id": 6
-    },
-    {
       "firstname": "poo",
       "lastname": "man",
       "email": "poo@gmail.com",
@@ -71,24 +11,14 @@
       "id": 7
     },
     {
-      "firstname": "fgfgf",
-      "lastname": "gfgfgf",
-      "email": "gfgf",
-      "mobile": 656565,
-      "gender": "",
-      "date": "2022-02-04",
-      "department": "3",
-      "id": 8
-    },
-    {
-      "firstname": "sdf",
-      "lastname": "dfdfd",
-      "email": "dfdf",
-      "mobile": 54545,
-      "gender": "",
-      "date": "2022-02-04",
-      "department": "3",
-      "id": 9
+      "firstname": "vviral",
+      "lastname": "lajlsjlj",
+      "email": "bajbs@gmail.ocm",
+      "mobile": 5467367346868,
+      "gender": "Male",
+      "date": "2022-02-05",
+      "department": "2",
+      "id": 11
     }
   ]
 }
