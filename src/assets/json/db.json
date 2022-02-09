@@ -1,24 +1,3 @@
 {
-  "users": [
-    {
-      "firstname": "poo",
-      "lastname": "man",
-      "email": "poo@gmail.com",
-      "mobile": 565845,
-      "gender": "",
-      "date": "2022-02-04",
-      "department": "2",
-      "id": 7
-    },
-    {
-      "firstname": "vviral",
-      "lastname": "lajlsjlj",
-      "email": "bajbs@gmail.ocm",
-      "mobile": 5467367346868,
-      "gender": "Male",
-      "date": "2022-02-05",
-      "department": "2",
-      "id": 11
-    }
-  ]
+  "users": []
 }
