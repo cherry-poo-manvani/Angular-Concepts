@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PhonemaskDirective } from './phonemask.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    PhonemaskDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+{
+    "department": [
+        {
+            "id": 1,
+            "name": "Front-end"
+          },
+          {
+            "id": 2,
+            "name": "QA"
+          },
+          {
+            "id": 3,
+            "name": ".Net"
+          }
+    ]
+  }

@@ -6,14 +6,14 @@ import { User } from '../Model/user.model';
 })
 export class UserfilterPipe implements PipeTransform {
 
-  transform(users: User[], Searchname: string): User[] {
-    if (Searchname == '') {
+  transform(users: User[], searchName: string): User[] {
+    if (searchName == '') {
       return users
     }
 
 
     return users.filter(data => {
-      return data.firstname.toLowerCase().match(Searchname.toLowerCase())
+      return data.firstname.toLowerCase().match(searchName.toLowerCase())
     })
   }
 

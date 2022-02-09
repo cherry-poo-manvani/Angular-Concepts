@@ -12,11 +12,12 @@ export class UserListComponent implements OnInit {
   usersListData: User[] = [];
   Searchname: string = '';
 
-
+  departments:any;
   constructor(private userServiceService: UserServiceService) { }
 
   ngOnInit(): void {
     this.getUser();
+    this.getDepartment();
   }
 
   getUser() {
@@ -31,7 +32,10 @@ export class UserListComponent implements OnInit {
       this.getUser();
     })
   }
-
-
-
+  getDepartment() {
+    this.userServiceService.getDepratmnet().subscribe((res: any) => {
+      this.departments = res;
+    })
+  }
+ 
 }

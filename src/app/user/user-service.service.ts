@@ -34,6 +34,9 @@ export class UserServiceService {
     let API_URL = `${this.apiUrl}/users`;
     return this.http.put<User>(`${API_URL}/${id}`,data)
   }
+  getDepratmnet(): Observable<any[]> {
+    let API_URL = `http://localhost:3001/department`;
+    return this.http.get<any[]>(API_URL);
 
-  
+  }
 }

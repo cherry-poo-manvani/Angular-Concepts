@@ -7,13 +7,17 @@ import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserServiceService } from './user-service.service';
 import { UserfilterPipe } from './pipes/userfilter.pipe';
+import { Departmentfilter } from './pipes/departmentfilter.pipe';
+
 
 
 @NgModule({
   declarations: [
     UserFormComponent,
     UserListComponent,
-    UserfilterPipe
+    UserfilterPipe,
+    Departmentfilter
+
   ],
   imports: [
     CommonModule,

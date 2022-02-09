@@ -34,7 +34,7 @@
       <!-- <Mobile No.> -->  
             <label class="mr-sm-2 sr-only" for="MobileNo">Mobile No.</label>
             <div class="col">
-             <input type="number" formControlName="mobile" class="form-control" id="MobileNo" placeholder="MobileNo"> 
+             <input type="number" formControlName="mobile" class="form-control" id="MobileNo" placeholder="MobileNo" [ngModel]=""> 
           </div>
       <!-- <Gender>   -->
         <div class="custom-control custom-radio" >
@@ -56,10 +56,7 @@
         <div class="col-auto my-1">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Department</label>
             <select formControlName="department" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option selected>Choose...</option>
-              <option value="1">Front-end</option>
-              <option value="2">Back-end</option>
-              <option value="3">Database</option>
+              <option *ngFor="let department of departments" [value]="department.id">{{department.name}}</option>
             </select>
           </div>
         <!-- <button> -->
