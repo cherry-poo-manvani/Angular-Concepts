@@ -15,6 +15,12 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module')  
     .then(m => m.UserModule)  
  },
+
+ {
+  path: 'resume', 
+  loadChildren: () => import('./resume-builder/resume-builder.module')  
+  .then(m => m.ResumeBuilderModule)  
+},
 ];
 
 @NgModule({

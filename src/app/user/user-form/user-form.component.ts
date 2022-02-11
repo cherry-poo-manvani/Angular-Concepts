@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NumberValueAccessor, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PhonemaskDirective } from 'src/app/phonemask.directive';
 import { User } from '../Model/user.model';
 import { UserServiceService } from '../user-service.service';
 
@@ -12,7 +11,8 @@ import { UserServiceService } from '../user-service.service';
   
 })
 
-export class UserFormComponent implements OnInit {
+export class UserFormComponent implements 
+OnInit {
   userForm = {} as FormGroup;
   submitted: boolean = false;
   userData: User[] = []

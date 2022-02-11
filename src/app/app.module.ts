@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PhonemaskDirective } from './phonemask.directive';
+import { SharedModule } from './shared/shared.module';
+import { ResumeBuilderModule } from './resume-builder/resume-builder.module';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { PhonemaskDirective } from './phonemask.directive';
     UserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
+    ResumeBuilderModule
  
     
   ],
