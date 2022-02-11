@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Resume } from '../resume-builder.model';
+import { ResumeService } from '../resume-builder.service';
 
 @Component({
   selector: 'app-resume-builder-list',
@@ -6,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume-builder-list.component.css']
 })
 export class ResumeBuilderListComponent implements OnInit {
+  Resumebuilderlist: Resume[] =[];
 
-  constructor() { }
 
-  ngOnInit(): void { }
+  constructor( private fb:ResumeService) { 
+    
+  }
+
+  ngOnInit(): void { 
+    
+  
+    
+  }
 }
+ 
+
