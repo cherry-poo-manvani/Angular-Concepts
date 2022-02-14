@@ -4,8 +4,8 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserServiceService } from './user-service.service';
-import { UserfilterPipe } from './pipes/userfilter.pipe';
-import { Departmentfilter } from './pipes/departmentfilter.pipe';
+// import { UserfilterPipe } from '../user/pipes/userfilter.pipe';
+import { Departmentfilter } from '../user/pipes/departmentfilter.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +15,6 @@ import { CommonModule } from '@angular/common';
   declarations: [
     UserFormComponent,
     UserListComponent,
-    UserfilterPipe,
     Departmentfilter
 
   ],
@@ -30,7 +29,7 @@ import { CommonModule } from '@angular/common';
   exports: [
     UserFormComponent,
     UserListComponent,
-    UserfilterPipe,
+    // UserfilterPipe,
     Departmentfilter
   ],
   providers:[

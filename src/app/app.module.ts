@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PhonemaskDirective } from './phonemask.directive';
 import { SharedModule } from './shared/shared.module';
 import { ResumeBuilderModule } from './resume-builder/resume-builder.module';
+import { AuserModule } from './auser/auser.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ResumeBuilderModule } from './resume-builder/resume-builder.module';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    ResumeBuilderModule
+    ResumeBuilderModule,
+    AuserModule
  
     
   ],

@@ -1,3 +1,38 @@
 {
-  "users": []
+  "users": [
+    {
+      "fullname": " b vn",
+      "email": "poo@gmail.com",
+      "mobile": null,
+      "gender": "Female",
+      "city": "",
+      "date": "2022-02-03",
+      "department": "",
+      "id": 1
+    },
+    {
+      "fullname": "cgvbn ",
+      "email": "gnh@ghbn",
+      "mobile": 563,
+      "gender": "Male",
+      "city": "",
+      "date": "2022-02-04",
+      "department": "",
+      "id": 2
+    }
+  ],
+  "department": [
+    {
+      "id": 1,
+      "name": "Front-end"
+    },
+    {
+      "id": 2,
+      "name": "QA"
+    },
+    {
+      "id": 3,
+      "name": ".Net"
+    }
+  ]
 }
