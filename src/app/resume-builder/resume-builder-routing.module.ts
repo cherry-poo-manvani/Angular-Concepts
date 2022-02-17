@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'resumeList', component: ResumeBuilderListComponent },
   { path: 'resumeForm', component: ResumeBuilderFormComponent },
   { path: 'resumeView', component: ResumeBuilderViewComponent },
-  // {path: 'edit/:id',component: UserFormComponent}
+
 ];
 
 @NgModule({

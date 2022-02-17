@@ -1,13 +1,12 @@
+
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 // import { CoreComponent } from './core/core.component';
 // import { UListComponent } from './user-form/u-list/u-list.component';
 // import { UserFormComponent } from './user-form/user-form.component';
 
-const routes: Routes = [
-  {
-    path: '', pathMatch: 'full', redirectTo: ''
-  },
+const routes: Routes = [ 
   
   {
     path: 'user', 
