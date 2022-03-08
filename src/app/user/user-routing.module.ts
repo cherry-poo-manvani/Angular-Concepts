@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      {path: '', },
+      {path: '', redirectTo:'list', pathMatch:'full'},
       {path: 'list', component: UserListComponent},
       {path: 'form', component: UserFormComponent},
       {path: 'edit/:id',component: UserFormComponent}

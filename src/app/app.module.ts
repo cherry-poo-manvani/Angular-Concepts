@@ -25,7 +25,7 @@ import { UserModule } from './user/user.module';
     HttpClientModule,
     SharedModule,
     ResumeBuilderModule,
-    AuserModule
+    AuserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 import { User } from '../Model/user.model';
 import { UserServiceService } from '../user-service.service';
 
@@ -17,13 +18,17 @@ OnInit {
   submitted: boolean = false;
   userData: User[] = []
 
-  id: number;
+  @Input() id?: number;
   isEdit: boolean = false;
-  departments: any
+  departments: any;
+
+  @Output() cancel:EventEmitter<Event>;
+
   constructor(private formBuilder: FormBuilder,
     private userServiceService: UserServiceService,
     private router: Router, private route: ActivatedRoute) {
-    this.id = this.route.snapshot.params['id'];
+    this.cancel = new EventEmitter<Event>()
+
   }
   
 
@@ -35,9 +40,11 @@ OnInit {
       this.isEdit = true;
     }
     if (this.isEdit) {
-      this.userServiceService.getByID(this.id).subscribe(data => {
-        this.userForm.patchValue(data)
-      })
+      if(this.id) {
+        this.userServiceService.getByID(this.id).subscribe(data => {
+          this.userForm.patchValue(data)
+        })
+      }
     }
   }
 
@@ -49,7 +56,7 @@ OnInit {
       "mobile": new FormControl("", Validators.required),
       "gender": new FormControl("", Validators.required),
       "date": new FormControl("", Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)),
-      "department": new FormControl("", Validators.required),
+      // "department": new FormControl("", Validators.required),
     });
   }
 
@@ -64,14 +71,16 @@ OnInit {
     else {
       this.Savedata()
     }
+    this.cancel.emit();
   }
 
 
   Updatedata() {
-    this.userServiceService.updateUser(this.id, this.userForm.value).subscribe(() => {
-      alert("updated");
-      this.router.navigateByUrl("/list");
-    })
+    if (this.id) {
+      this.userServiceService.updateUser(this.id, this.userForm.value).subscribe(() => {
+        alert("updated");
+      })
+    }
   }
 
   Savedata() {
@@ -82,13 +91,11 @@ OnInit {
       return;
     }
     this.userServiceService.addUser(this.userForm.value).subscribe(() => {
-      this.router.navigateByUrl("/list");
     })
   }
 
   onReset() {
-    this.submitted = false;
-    this.userForm.reset();
+    this.cancel.emit();
   }
   getDepartment() {
     this.userServiceService.getDepratmnet().subscribe((res: any) => {

@@ -8,6 +8,7 @@ import { UserServiceService } from './user-service.service';
 import { Departmentfilter } from '../user/pipes/departmentfilter.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
@@ -23,6 +24,7 @@ import { CommonModule } from '@angular/common';
     SharedModule,
     UserRoutingModule,
     FormsModule,
+    OverlayModule,
     ReactiveFormsModule
    
   ],

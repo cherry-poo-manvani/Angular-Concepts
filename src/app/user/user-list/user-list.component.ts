@@ -1,5 +1,9 @@
+import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
 import { Component, OnInit } from '@angular/core';
+import { ConfirmationPopupComponent } from 'src/app/shared/confirmation-popup/confirmation-popup.component';
 import { User } from '../Model/user.model';
+import { UserFormComponent } from '../user-form/user-form.component';
 import { UserServiceService } from '../user-service.service';
 
 
@@ -12,8 +16,8 @@ export class UserListComponent implements OnInit {
   usersListData: User[] = [];
   Searchname: string = '';
 
-  departments:any;
-  constructor(private userServiceService: UserServiceService) { }
+  departments: any;
+  constructor(private userServiceService: UserServiceService, private overlay: Overlay) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -37,5 +41,42 @@ export class UserListComponent implements OnInit {
       this.departments = res;
     })
   }
- 
+
+  openform(id?: number) {
+    let config = new OverlayConfig();
+    config.hasBackdrop = true;
+    config.positionStrategy = this.overlay.position().global().centerHorizontally().right();
+
+    const overlayRef = this.overlay.create(config);
+
+    const component = new ComponentPortal(UserFormComponent);
+    const componentRef = overlayRef.attach(component);
+
+    componentRef.instance.id = id;
+
+    componentRef.instance.cancel.subscribe(() => {
+      overlayRef.detach();
+      this.getUser();
+    });
+  }
+
+  openPopup(id: number) {
+    let config = new OverlayConfig();
+    config.hasBackdrop = true;
+    config.positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically();
+
+    const overlayRef = this.overlay.create(config);
+
+    const component = new ComponentPortal(ConfirmationPopupComponent);
+    const componentRef = overlayRef.attach(component);
+
+    componentRef.instance.id = id;
+
+    componentRef.instance.buttonClickEvent.subscribe((name) => {
+      if (name === 'yes') {
+        this.deleteUser(id);
+      }
+      overlayRef.detach();
+    });
+  }
 }
