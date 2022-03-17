@@ -22,6 +22,11 @@ const routes: Routes = [
     loadChildren: () => import('./auser/auser-routing.module')
       .then(m => m.AuserRoutingModule)
   },
+
+  { path: 'sub', 
+  loadChildren: () => import('./subject/subject.module')
+  .then(m => m.SubjectModule)
+ },
 ];
 
 @NgModule({
