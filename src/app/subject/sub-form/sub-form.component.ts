@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubjectService } from '../subject.service';
 
 @Component({
@@ -7,15 +8,40 @@ import { SubjectService } from '../subject.service';
   styleUrls: ['./sub-form.component.scss']
 })
 export class SubFormComponent implements OnInit {
-  sub!: string;
-  editUser!: string; 
-  constructor(private subjectservice: SubjectService) { }
+  
+  DetailsForm={} as FormGroup;
+  isEditMode: boolean = false;
+  idToEdit!: number;
+
+  constructor(private formBuilder: FormBuilder, private subjectService: SubjectService) { }
 
   ngOnInit(): void {
-    this.subjectservice.cast.subscribe(sub => this.sub = sub);
+    this.buildProfileForm();
+
+    this.subjectService.editDetails$.subscribe((oldData) => {
+      this.isEditMode = true;
+      this.DetailsForm.patchValue(oldData);
+      this.idToEdit = oldData.id;
+    });
   }
 
-  editTheUser(){
-    this.subjectservice.editUser(this.editUser)
+  buildProfileForm() {
+    this.DetailsForm = this.formBuilder.group({
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      email: ['',[Validators.email]],
+    });
   }
+
+  onSubmit() {
+    if (this.DetailsForm.valid) {
+      if (this.isEditMode) {
+        this.subjectService.editDetails({...this.DetailsForm.value, id: this.idToEdit})
+      } else {
+        this.subjectService.addDetails(this.DetailsForm.value)
+      }
+      this.DetailsForm.reset();
+    }
+  }
+
 }

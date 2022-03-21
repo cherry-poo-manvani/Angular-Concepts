@@ -26,8 +26,6 @@ import { UserModule } from './user/user.module';
     SharedModule,
     ResumeBuilderModule,
     AuserModule,
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
