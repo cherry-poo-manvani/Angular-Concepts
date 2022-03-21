@@ -1,0 +1,30 @@
+<div class="container py-5">
+    <form class="py-5">
+        <div class="row d-flex">
+            <div class="mb-3 col-6">
+                <label for="fullname" class="form-label">Name</label>
+                <input type="text" class="form-control" id="fullname" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 col-6">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="age">
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div class="mb-3 col-6">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="phone" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 col-6">
+                <label for="gender"> Gender </label>
+                <div class="d-flex justify-content-between align-items-center w-50 pt-2">
+                    <input type="radio" name="gender" id="male" value="Male" class="form-check-input">
+                    <label for="male" class="form-check-label"> Male </label>
+                    <input type="radio" name="gender" id="female" value="Female" class="form-check-input">
+                    <label for="female" class="form-check-label"> Female </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

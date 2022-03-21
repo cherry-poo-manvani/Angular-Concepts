@@ -27,6 +27,8 @@ const routes: Routes = [
   loadChildren: () => import('./subject/subject.module')
   .then(m => m.SubjectModule)
  },
+
+  { path: 'mvp', loadChildren: () => import('./mvp-demo/mvp-demo.module').then(m => m.MvpDemoModule) },
 ];
 
 @NgModule({

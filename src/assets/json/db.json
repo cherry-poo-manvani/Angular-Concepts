@@ -1,22 +1,51 @@
 {
-  "users": [
-    {
-      "firstname": "cvb ",
-      "lastname": "tyhgv",
-      "email": "fzjb@mn",
-      "mobile": 4656868978,
-      "gender": "Female",
-      "date": "2022-03-10",
-      "id": 1
-    },
-    {
-      "firstname": "fdgf",
-      "lastname": "fdgdfg",
-      "email": "dfgdfg@gmail.com",
-      "mobile": 756768,
-      "gender": "Male",
-      "date": "2022-03-24",
-      "id": 2
-    }
-  ]
+    "users": [{
+            "firstname": "cvb ",
+            "lastname": "tyhgv",
+            "email": "fzjb@mn",
+            "mobile": 4656868978,
+            "gender": "Female",
+            "date": "2022-03-10",
+            "id": 1
+        },
+        {
+            "firstname": "fdgf",
+            "lastname": "fdgdfg",
+            "email": "dfgdfg@gmail.com",
+            "mobile": 756768,
+            "gender": "Male",
+            "date": "2022-03-24",
+            "id": 2
+        }
+    ],
+
+    "userdata": [{
+            "id": 1,
+            "fullname": "Pooja",
+            "age": 56,
+            "phone": 458635,
+            "gender": "Male"
+        },
+        {
+            "id": 2,
+            "fullname": "Pooja",
+            "age": 56,
+            "phone": 458635,
+            "gender": "Male"
+        },
+        {
+            "id": 3,
+            "fullname": "Pooja",
+            "age": 56,
+            "phone": 458635,
+            "gender": "Male"
+        },
+        {
+            "id": 4,
+            "fullname": "Pooja",
+            "age": 56,
+            "phone": 458635,
+            "gender": "Male"
+        }
+    ]
 }
