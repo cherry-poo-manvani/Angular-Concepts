@@ -31,7 +31,7 @@ export class SubListComponent implements OnInit {
   }
 
   editDetails(newData: Details): void {
-    let temp = this.DetailsList.findIndex((ele) => ele.id === newData.id);
+    let temp = this.DetailsList.findIndex((el) => el.id === newData.id);
     this.DetailsList[temp] = newData;
   }
 
@@ -44,6 +44,6 @@ export class SubListComponent implements OnInit {
   }
 
   onDelete(id : number) : Details[]{
-    return this.DetailsList.splice(id, 1);
+    return this.DetailsList.splice(id);
   }
 }
