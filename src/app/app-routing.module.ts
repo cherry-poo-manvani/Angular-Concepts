@@ -29,6 +29,12 @@ const routes: Routes = [
  },
 
   { path: 'mvp', loadChildren: () => import('./mvp-demo/mvp-demo.module').then(m => m.MvpDemoModule) },
+
+  { path: 'mvpp', loadChildren: () => import('./mvpp/mvpp.module').then(m => m.MvppModule) },
+
+  { path: 'decorator', loadChildren: () => import('./decorator/decorator.module').then(m => m.DecoratorModule) },
+
+  { path: 'parent', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule) },
 ];
 
 @NgModule({

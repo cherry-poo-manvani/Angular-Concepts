@@ -9,41 +9,16 @@ import { SubjectService } from '../subject.service';
 })
 export class SubListComponent implements OnInit {
   
-  DetailsList= [] as Details[];
+  
 
-  constructor(private subjectService: SubjectService) { }
+  constructor(private service:SubjectService) { }
 
   ngOnInit(): void {
-    this.subjectService.details$.subscribe((newData) => {
-      this.addDetails(newData);
-    });
-    this.subjectService.editedDetails$.subscribe((newData) => {
-      this.editDetails(newData);
-    });
+    this.service.subject.subscribe((m) => {
+      console.log(m);
+    })    
   }
 
-  DetailsTrack(index: number, profile: Details ): number {
-    return profile.id;
-  }
 
-  addDetails(newData: Details): void {
-    this.DetailsList.push(newData);
-  }
-
-  editDetails(newData: Details): void {
-    let temp = this.DetailsList.findIndex((el) => el.id === newData.id);
-    this.DetailsList[temp] = newData;
-  }
-
-  onEdit(oldData: Details) {
-    this.subjectService.sendDetailsToEdit(oldData);
-  }
-
-  sendDetailsToEdit(id: number, oldData: Details) {
-    this.subjectService.sendDetailsToEdit(oldData);
-  }
-
-  onDelete(id : number) : Details[]{
-    return this.DetailsList.splice(id);
-  }
+ 
 }
